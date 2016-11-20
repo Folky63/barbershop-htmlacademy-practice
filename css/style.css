@@ -1,0 +1,49 @@
+body {
+    text-transform: uppercase;
+    background: url(/img/main-bg.jpg) no-repeat;
+    color: white;
+    font-family: "PT Sans Narrow";
+}
+
+.clearfix {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.layout-centerer {
+    width: 960px;
+    padding: 0 10px;
+    margin: auto;
+}
+
+header {
+    width: 100%;
+    font-size: 16px;
+}
+
+nav li {
+    display: inline-block;
+    border: 1px dotted rgba(0, 255, 0, 0.6);
+}
+
+nav ul {
+    width: 680px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+nav {
+    float: left;
+}
+
+.user-area {
+    float: right;
+}
+
+* {
+    border: 1px dotted rgba(255, 255, 255, 0.1);
+}
