@@ -5,7 +5,7 @@
 }
 
 body {
-    background: black url(/img/main-bg.jpg) no-repeat top;
+    background: black url('../img/main-bg.jpg') no-repeat top;
     color: white;
     width: 100%;
     margin: 0;
@@ -34,27 +34,39 @@ header {
 
 nav li {
     display: inline-block;
-    vertical-align: middle;
-    padding-bottom: 30px;
-     margin-left: 40px;
+    vertical-align: top;
+    line-height: 20px;
 }
 
+nav a, ul span {
+    display: block;
+    padding: 25px 20px;
+    color: white;
+    text-decoration: none;
+    
+}
+
+nav a:hover {
+    background-color: #242424;
+   
+}
 
 nav .active {
     position: relative;
-    background: none;
+    background-color: none;
     
 }
 nav .active::after {
     
     content: "";
     position: absolute;
-    left: 0;
+  width: 100%;
     bottom: 0px;
     height: 5px;
-    width: 100%;
+    
     background: #ffffff;
 }
+
 
 
 
@@ -62,32 +74,53 @@ nav ul {
     width: 680px;
     margin: 0;
     padding: 0;
-    vertical-align: middle;
+    
 }
 
-a {
-    color: white;
-    text-decoration: none;
-    vertical-align: middle;
-}
 
 nav {
     float: left;
-    padding-top: 18px;
 }
 
 .user-area {
     float: right;
-    vertical-align: middle;
-    padding-top: 18px;
+    max-width 140px;
+    
+    
+    
+}
+.login {
+    position: relative;
+    display: inline-block;
+    padding: 25px 20px;
+    padding-left: 50px;
+    line-height: 20px;
+    vertical-align: top;
+    text-decoration: none;
+    color: white;
+    
+    
+}
+.login::before {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: 28px;
+    left: 20px;
+    background: transparent url('../img/icon-login.png') no-repeat;
+    opacity: 0.3;
+   
+    
+}
+.login:hover{
+    background: #242424;
+}
+.login:hover::before{
+    opacity: 1;
 }
 
-.user-area img {
-    width: 18px;
-    height: 16px;
-    margin-bottom: -6px;
-    margin-right: 10px;
-}
+
 
 .logo {
     width: 368px;
@@ -183,7 +216,7 @@ time {
 
 .news-gallery,
 .info-apply {
-    background: lightgrey url(/img/section-bg.jpg) repeat;
+    background: lightgrey url(../img/section-bg.jpg) repeat;
     color: black;
     width: 940px;
     height: 430px;
@@ -374,7 +407,7 @@ footer {
     height: 189px;
     font-size: 14px;
     font-weight: bold;
-    background: grey url(/img/footer-bg.jpg);
+    background: grey url(../img/footer-bg.jpg);
     margin: 0;
 }
 
@@ -407,7 +440,7 @@ footer {
 .social-btn {
     display: block;
     float: left;
-    background: grey url(/img/spritesheet.png);
+    background: grey url(../img/spritesheet.png);
     width: 43px;
     height: 43px;
     margin-left: 6px;
