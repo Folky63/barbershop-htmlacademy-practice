@@ -1,11 +1,10 @@
 * {
     text-transform: uppercase;
     font-family: "PT Sans Narrow", sans-serif;
-    /*            border: 1px dotted grey;*/
 }
 
 body {
-    background: black url('../img/main-bg.jpg') no-repeat top;
+    background: black url("../img/main-bg.jpg") no-repeat top;
     color: white;
     width: 100%;
     margin: 0;
@@ -25,7 +24,7 @@ body {
 
 header {
     width: 100%;
-    height: 72px;
+    height: 70px;
     font-size: 16px;
     font-weight: bold;
     background: black;
@@ -38,45 +37,38 @@ nav li {
     line-height: 20px;
 }
 
-nav a, ul span {
-    display: block;
+nav a,
+ul span {
+    display: inline-block;
     padding: 25px 20px;
     color: white;
     text-decoration: none;
-    
 }
 
 nav a:hover {
     background-color: #242424;
-   
 }
 
 nav .active {
     position: relative;
     background-color: none;
-    
 }
+
 nav .active::after {
-    
     content: "";
     position: absolute;
-  width: 100%;
-    bottom: 0px;
+    right: 20px;
+    left: 20px;
+    bottom: 0;
     height: 5px;
-    
     background: #ffffff;
 }
-
-
-
 
 nav ul {
     width: 680px;
     margin: 0;
     padding: 0;
-    
 }
-
 
 nav {
     float: left;
@@ -85,10 +77,8 @@ nav {
 .user-area {
     float: right;
     max-width 140px;
-    
-    
-    
 }
+
 .login {
     position: relative;
     display: inline-block;
@@ -98,9 +88,8 @@ nav {
     vertical-align: top;
     text-decoration: none;
     color: white;
-    
-    
 }
+
 .login::before {
     content: "";
     position: absolute;
@@ -108,19 +97,18 @@ nav {
     height: 18px;
     top: 28px;
     left: 20px;
-    background: transparent url('../img/icon-login.png') no-repeat;
+    background: transparent url("../img/spritesheet2.png") no-repeat;
+    background-position: -9px -10px;
     opacity: 0.3;
-   
-    
 }
-.login:hover{
+
+.login:hover {
     background: #242424;
 }
-.login:hover::before{
+
+.login:hover::before {
     opacity: 1;
 }
-
-
 
 .logo {
     width: 368px;
@@ -186,16 +174,23 @@ time {
 
 .btn {
     display: inline-block;
-    background: black;
-    color: white;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 14px;
     font-size: 14px;
     font-weight: bold;
-    outline: none;
+    text-decoration: none;
+    color: white;
+    background: black;
     border: none;
+    outline: none;
     cursor: pointer;
-    font-size: 14px;
-    height: 33px;
-    padding-bottom: 0;
+    min-width: 138px;
+    min-height: 43px;
+    max-height: 43px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 25px
 }
 
 .btn:hover,
@@ -216,7 +211,7 @@ time {
 
 .news-gallery,
 .info-apply {
-    background: lightgrey url(../img/section-bg.jpg) repeat;
+    background: lightgrey url("../img/section-bg.jpg") repeat;
     color: black;
     width: 940px;
     height: 430px;
@@ -274,13 +269,6 @@ time {
     margin-top: 34px;
 }
 
-.btn-gallery-next,
-.btn-gallery-prev {
-    display: inline-block;
-    width: 138px;
-    height: 43px;
-}
-
 .gallery .btn-gallery-next {
     margin-left: 20px;
 }
@@ -291,17 +279,14 @@ time {
     width: 300px;
 }
 
-section a {
-    display: inline-block;
-    min-width: 140px;
-    height: 41px;
-    padding: 10px;
-    text-align: center;
-    font-weight: bold;
+section a,
+.module-btn {
+    box-sizing: border-box;
 }
 
 .btn-news {
     margin-top: 27px;
+    height: 20px;
 }
 
 .contacts-btn {
@@ -407,7 +392,7 @@ footer {
     height: 189px;
     font-size: 14px;
     font-weight: bold;
-    background: grey url(../img/footer-bg.jpg);
+    background: grey url("../img/footer-bg.jpg");
     margin: 0;
 }
 
@@ -421,6 +406,11 @@ footer {
 
 .footer-info {
     width: 320px;
+}
+
+.footer-info a {
+    color: white;
+    text-decoration: none;
 }
 
 .social {
@@ -440,7 +430,7 @@ footer {
 .social-btn {
     display: block;
     float: left;
-    background: grey url(../img/spritesheet.png);
+    background: grey url("../img/spritesheet.png");
     width: 43px;
     height: 43px;
     margin-left: 6px;
@@ -483,13 +473,205 @@ footer {
     margin-right: auto;
 }
 
-.btn-copyright {
-    display: block;
-    min-width: 138px;
-    min-height: 43px;
-    line-height: 45px;
-}
-
 .map-link {
     text-decoration: underline;
+}
+
+
+/* login popup */
+
+.modal-content {
+    display: none;
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    width: 300px;
+    margin-left: -230px;
+    padding: 50px 80px;
+    color: black;
+    background: #f8f3f0 url("../img/section-bg.jpg")
+}
+
+.modal-content-close {
+    position: absolute;
+    top: 0;
+    right: -34px;
+    width: 22px;
+    height: 22px;
+    font-size: 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: none;
+}
+
+.modal-content-close::before,
+.modal-content-close::after,
+.modal-map-close::before,
+.modal-map-close::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 2px;
+    width: 19px;
+    height: 3px;
+    background-color: #d0d0d0;
+    border-radius: 1px;
+}
+
+.modal-content-close::before,
+.modal-map-close::before {
+    transform: rotate(45deg);
+}
+
+.modal-content-close::after,
+.modal-map-close::after {
+    transform: rotate(-45deg);
+}
+
+.modal-content h2 {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 30px;
+    line-height: 42px;
+}
+
+.modal-content p {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.modal-content .login-form {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 236px;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    padding-right: 40px;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: "PT Sans Narrow", "Arial", sans-serif;
+    text-transform: uppercase;
+    color: black;
+    background-color: #f9f6f3;
+    border: 2px solid black;
+    outline: none;
+}
+
+.login-form input:focus {
+    border-color: #663d15;
+}
+
+.login-form input.icon-user {
+    background-image: url("../img/spritesheet2.png");
+    background-repeat: no-repeat;
+    background-position: 100% -69px;
+}
+
+.login-form input.icon-password {
+    background-image: url("../img/spritesheet2.png");
+    background-repeat: no-repeat;
+    background-position: 100% -33px;
+}
+
+.login-form a,
+.login-form label {
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: "PT Sans Narrow", "Arial", sans-serif;
+    text-transform: uppercase;
+}
+
+.login-form a {
+    float: right;
+    text-decoration: underline;
+}
+
+
+/* modal map */
+
+.modal-map {
+    display: none;
+    position: fixed;
+    box-sizing: border-box;
+    top: 50%;
+    left: 50%;
+    margin-top: -287px;
+    margin-left: -390px;
+    padding: 7px;
+    width: 780px;
+    height: 574px;
+    background: white;
+    box-shadow: 0px 30px 100px black;
+}
+
+.modal-map-close {
+    position: absolute;
+    top: 0;
+    right: -34px;
+    width: 22px;
+    height: 22px;
+    font-size: 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: none;
+}
+
+
+/* for JS */
+
+@keyframes bounce {
+    0% {
+        transform: translateY(-2000px);
+    }
+    70% {
+        transform: translateY(30px);
+    }
+    90% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes shake {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-10px);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(10px);
+    }
+}
+
+.modal-content-show {
+    display: block;
+    animation: bounce 0.6s;
+}
+
+.modal-error {
+    animation: shake 0.6s;
+}
+
+.modal-map-show {
+    display: block;
 }
